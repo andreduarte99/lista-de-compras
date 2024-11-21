@@ -1,0 +1,79 @@
+:root{
+    --cor-roxa: #9353FF;
+    --neutro: #F9F9F9;
+}
+
+
+main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.container-form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+
+    width: 792px;
+    padding: 40px;
+    border: solid 2px black;
+}
+
+h1{
+    font-size: 20px;
+    font-family: 'Inter', sans-serif;
+}
+
+#input-item{
+    padding: 9px 18px;
+    width: 40%;
+}
+
+#input-item::placeholder{
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    color: #6C757D;
+}
+
+.botao-enviar{
+    padding: 10px 15px;
+    background-color: var(--cor-roxa);
+    border: none;
+    color: whitesmoke;
+    font-size: 16px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+}
+
+.checkbox-input{
+    display: none;
+}
+
+.checkbox-customizado{
+    width: 20px;
+    height: 20px;
+    background-color: var(--neutro);
+    border: 1px solid black;
+    border-radius: 3px;
+    cursor:pointer;
+}
+
+.checked {
+    background-color: var(--cor-roxa);
+    position: relative;
+    border: none;
+}
+
+.checked::after{
+    content: "";
+    position: absolute;
+    left: 30%;
+    width: 5px;
+    height: 14px;
+
+    border-top: 2px solid var(--neutro);
+    border-left: 2px solid var(--neutro);
+    transform: rotate(-140deg);
+}
