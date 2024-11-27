@@ -1,3 +1,6 @@
+import { adicionarData } from "./adicionarData.js";
+
+
 const listaComprados = document.getElementById("lista-comprados");
 let contador = 0;
 
@@ -24,6 +27,8 @@ export function criarItemDaLista(item) {
     const checkboxLabel = document.createElement("label");
     checkboxLabel.setAttribute("for", checkboxInput.id);
 
+    
+
     checkboxLabel.addEventListener("click", function (evento) {
         const checkboxInput = evento.currentTarget.querySelector(".checkbox-input");
         const checkboxCustomizado = evento.currentTarget.querySelector(".checkbox-customizado");
@@ -36,7 +41,7 @@ export function criarItemDaLista(item) {
         } else {
             checkboxCustomizado.classList.remove("checked");
             itemTitulo.style.textDecoration = "none";
-            listaDeCompras.appendChild(itemDaLista);
+            listaComprados.appendChild(itemDaLista);
         }
 
     });
@@ -75,12 +80,17 @@ export function criarItemDaLista(item) {
     containerItemLista.appendChild(containerNomeDoItem);
     containerItemLista.appendChild(containerBotoes);
 
+    
     const itemData = document.createElement("p");
-    itemData.innerText = `${new Date().toLocaleDateString("pt-BR", { weekday: "long" })} (${new Date().toLocaleDateString()}) às ${new Date().toLocaleTimeString("pt-BR", { hour: "numeric", minute: "numeric" })}`;
+    itemData.innerText = adicionarData();
     itemData.classList.add("texto-data");
 
     itemDaLista.appendChild(containerItemLista);
     itemDaLista.appendChild(itemData);
 
+
+
     return itemDaLista;
+
+    
 }
