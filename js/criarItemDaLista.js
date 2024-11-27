@@ -1,7 +1,9 @@
+import { excluirItem } from "./excluirItem.js";
 import { adicionarData } from "./adicionarData.js";
 import { verificarListaComprados } from "./verificaListaComprados.js";
 
 
+const listaDeCompras = document.getElementById("lista-de-compras");
 const listaComprados = document.getElementById("lista-comprados");
 let contador = 0;
 
@@ -44,7 +46,8 @@ export function criarItemDaLista(item) {
         } else {
             checkboxCustomizado.classList.remove("checked");
             itemTitulo.style.textDecoration = "none";
-            listaComprados.appendChild(itemDaLista);
+            listaDeCompras.appendChild(itemDaLista);
+            verificarListaComprados(listaComprados);
         }
 
     });
@@ -66,6 +69,10 @@ export function criarItemDaLista(item) {
     const imagemRemover = document.createElement("img");
     imagemRemover.src = "img/delete.svg";
     imagemRemover.alt = "Remover";
+
+    botaoRemover.addEventListener("click", function(){
+        excluirItem(itemDaLista);
+    });
 
     botaoRemover.appendChild(imagemRemover);
     containerBotoes.appendChild(botaoRemover);
