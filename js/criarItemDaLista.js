@@ -1,4 +1,5 @@
 import { adicionarData } from "./adicionarData.js";
+import { verificarListaComprados } from "./verificaListaComprados.js";
 
 
 const listaComprados = document.getElementById("lista-comprados");
@@ -38,6 +39,8 @@ export function criarItemDaLista(item) {
             checkboxCustomizado.classList.add("checked");
             itemTitulo.style.textDecoration = "line-through";
             listaComprados.appendChild(itemDaLista);
+            verificarListaComprados(listaComprados);
+
         } else {
             checkboxCustomizado.classList.remove("checked");
             itemTitulo.style.textDecoration = "none";
