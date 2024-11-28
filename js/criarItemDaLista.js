@@ -1,6 +1,7 @@
 import { excluirItem } from "./excluirItem.js";
 import { adicionarData } from "./adicionarData.js";
 import { verificarListaComprados } from "./verificaListaComprados.js";
+import { editarItem } from "./editarItem.js";
 
 
 const listaDeCompras = document.getElementById("lista-de-compras");
@@ -83,6 +84,11 @@ export function criarItemDaLista(item) {
     const imagemEditar = document.createElement("img");
     imagemEditar.src = "img/edit.svg";
     imagemEditar.alt = "Editar";
+
+    botaoEditar.addEventListener("click", function (){
+        editarItem(itemDaLista);
+        itemData.innerText = adicionarData();
+    });
 
     botaoEditar.appendChild(imagemEditar);
     containerBotoes.appendChild(botaoEditar);
